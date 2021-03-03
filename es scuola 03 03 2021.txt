@@ -1,0 +1,166 @@
+
+es 03/03/2021 calcolo media, (ammeso non ammeso sospeso), materie insufficenti, materie sufficenti.
+es da casa
+
+
+
+
+
+#include <stdio.h>
+
+int main()
+{   int rige=0,colonne,scelta,m=0,a,e=0;
+    char materia[10][30];
+    float voti [10][10],media,somma=0,numvoti=0,Minf[10],Mmax=0;
+    do{
+   printf("**************************************************************\n");
+        printf("Opzioni disponibili:\n");
+        printf("1) Inserimento nome e valutazioni di una materia\n");
+        printf("2) Calcolo e visualizzazione delle medie\n");
+        printf("3) Visualizzazione materie insufficienti\n");
+        printf("4) Visualizzazione materia con media migliore\n");
+        printf("5) Visualizzazione esito scolastico\n");
+        printf("0) Uscita\n");
+        printf("Scegli opzione: ");
+        scanf("%d", &scelta);
+        
+        switch(scelta) {
+            
+            case 1:
+            
+             printf("nome della materia ");
+             
+             scanf("%s",materia[rige]);
+             
+             printf("inserisci i voti di  %s ",materia[rige]);
+             
+             colonne=0;
+             
+             printf("\ninserisci 0 quando hai finito di inserire i voti con un massimo di 10\n");
+            
+            do{
+                
+                scanf("%f",& voti[rige][colonne]);
+                
+                colonne++;
+                
+            }while(voti[rige][colonne-1]!=0 && colonne<10);
+            
+            rige++;
+            
+                break;
+                
+             case 2:
+             
+               somma=0;
+               
+               numvoti=0;
+               
+               media=0;
+             
+             for(rige=0;rige<2;rige++){
+                 
+               somma=0;
+
+               media=0;
+               
+               numvoti=0;
+               
+              for(colonne=0;colonne<10;colonne++){
+                  
+                  if(voti[rige][colonne]!=0){
+                      
+                    numvoti++;
+                    
+                    }}
+                    
+                printf("\n%f",numvoti);
+                
+              for(colonne=0;colonne<numvoti;colonne++){
+                  
+                somma=somma+voti[rige][colonne];
+                
+              }printf("\n%f",somma);
+              
+              media=somma/numvoti;
+              
+              printf("\nla materi %s ha come media %f\n",materia[rige],media);
+              
+              Minf[m]=media;
+              
+              m++;
+              
+             }
+             
+                break;
+                
+            case 3:
+            
+            for(m=0;m<2;m++){
+                
+              if(Minf[m]<4.9){
+                  
+                printf("\nla materia %s ha media negativa: %f\n",materia[m],Minf[m]);
+                
+
+              }
+              
+            }
+                break;
+                
+            case 4:
+            
+            a=-1;
+            
+            for(m=0;m<2;m++){
+                
+              if(Minf[m]>Mmax){
+                  
+                Mmax=Minf[m];
+                
+                a++;
+                
+              }
+              
+            }printf("\nla materia con media migliore è %s\n",materia[a]);
+                break;
+                
+            case 5:
+            
+            for(m=0;m<2;m++){
+                
+              if(Minf[m]<5){
+                  
+                e++;
+                
+              }}
+              
+              if(e==0){
+                  
+                printf("amesso");
+                
+              }if(e==1 || e==2 || e==3 ){
+                  
+                printf("sospeso :( ");
+                
+              }if(e>3){
+                
+                printf("non amesso ;)");
+                
+              }
+              
+
+                break;
+                
+            case 0:
+            
+                break;
+                
+            default:
+            
+                printf("\nattenzione: opzione scelta non ammessa\n\n");
+        }
+    }
+    
+    while(scelta!=0);
+}
