@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <time.h> 
+#define N 1000 
+int main() {
+  int a[N];
+  int nums/*nummero sconosciuto*/, j, nind/*num da inserire */;
+  srand(time(0)); 
+  
+  for(nums=0;nums<N;nums++) {
+    a[nums]=rand()%1000+1;
+    for(j=0;j<nums;j++) {
+       	if(a[nums]==a[j]) {
+        }
+     }
+}
+    for(nums=0;nums<N;nums++)
+    printf("%d\n", a[nums]);
+
+
+printf("\ninserire numeri: ");
+  scanf("%d", &nind);
+ if(nums=nind){
+       printf("\nhai indovinato:)\n");
+  }else{
+       
+       printf("\nnon hai indovinato l :)\n");
+  }
+  
+  return 0;
+}
